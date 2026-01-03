@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TKG News Agency — Reader-Defined Edition</title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#121a33; --text:#e9ecff; --muted:#b9c1ff;
+      --accent:#66ffcc; --line:rgba(255,255,255,.12);
+      --secA:rgba(102,255,204,.08);
+      --secB:rgba(102,160,255,.10);
+      --secC:rgba(255,205,102,.10);
+      --secD:rgba(255,102,153,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    header{padding:20px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:linear-gradient(180deg, rgba(11,16,32,.98), rgba(11,16,32,.92));backdrop-filter: blur(8px);z-index:10}
+    .wrap{max-width:1100px;margin:0 auto;}
+    .brand{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+    .brand h1{margin:0;font-size:20px;letter-spacing:.3px}
+    .brand small{color:var(--muted)}
+    .badge{display:inline-block;border:1px solid var(--line);padding:2px 8px;border-radius:999px;font-size:11px;color:var(--muted)}
+    nav{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+    nav a{
+      color:var(--text);text-decoration:none;border:1px solid var(--line);
+      padding:6px 10px;border-radius:999px;font-size:13px;opacity:.9
+    }
+    nav a:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+    nav a.active{border-color:var(--accent);color:var(--accent);opacity:1;box-shadow:0 0 0 2px rgba(102,255,204,.12) inset}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;padding:16px}
+    .card{grid-column:span 4;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+    .card h3{margin:0 0 6px 0;font-size:14px;color:var(--muted);font-weight:600}
+    .big{font-size:26px;font-weight:800}
+    .note{color:var(--muted);font-size:12px;margin-top:6px;line-height:1.35}
+    section{margin:12px 16px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    section > header{position:relative;top:auto;background:transparent;border:0;padding:14px 14px 0 14px}
+    section > header h2{margin:0;font-size:16px}
+    .sec-body{padding:14px;display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .item{grid-column:span 6;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px}
+    .item h4{margin:0 0 8px 0;font-size:14px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:8px}
+    .item p{margin:0;color:var(--text);opacity:.92;line-height:1.45;font-size:13px}
+    .item a{display:inline-block;margin-top:10px;color:var(--accent);text-decoration:none;font-size:13px}
+    .item a:hover{text-decoration:underline}
+    .twoCol{grid-column:span 12;display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .oneCol .item{grid-column:span 12}
+    footer{padding:22px 16px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:20px}
+    .kbd{border:1px solid var(--line);border-radius:8px;padding:1px 6px;font-size:11px}
+    @media (max-width:860px){ .card{grid-column:span 6} .item{grid-column:span 12} }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <h1>TKG News Agency</h1>
+      <small>Customizable Digital Newspaper • Reader-Defined Editorial Choice</small>
+      <span class="badge">Target read time: ~45 min • SG HIGH • Regional MED • Global LOW-MED</span>
+      <span class="badge">Tip: press <span class="kbd">Ctrl</span>+<span class="kbd">F</span> to find keywords</span>
+    </div>
+
+    <nav id="topnav">
+      <a href="#world" data-link>World</a>
+      <a href="#singapore" data-link>Singapore Policy</a>
+      <a href="#asean" data-link>ASEAN</a>
+      <a href="#eastasia" data-link>East Asia</a>
+      <a href="#sports" data-link>Sports</a>
+      <a href="#biz" data-link>SG Business</a>
+      <a href="#comic" data-link>Comic</a>
+      <a href="#ent" data-link>Entertainment</a>
+      <a href="#microsoft" data-link>Microsoft</a>
+      <a href="#powerbi" data-link>Power BI</a>
+      <a href="#ai" data-link>AI</a>
+      <a href="#data" data-link>Data Analytics</a>
+      <a href="#video" data-link>Videos</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- Summary cards -->
+  <div class="grid">
+    <div class="card">
+      <h3>Today’s Coverage — Global</h3>
+      <div class="big">3</div>
+      <div class="note">Breaking headlines + macro/AI signals (scan quickly; deep dive later).</div>
+    </div>
+    <div class="card">
+      <h3>Today’s Coverage — Singapore</h3>
+      <div class="big">4</div>
+      <div class="note">Policy + economy anchors (best for “what affects me”).</div>
+    </div>
+    <div class="card">
+      <h3>Today’s Coverage — Regional</h3>
+      <div class="big">15</div>
+      <div class="note">ASEAN (10) + East Asia (5), 1-minute each.</div>
+    </div>
+  </div>
+
+  <!-- 1) WORLD -->
+  <section id="world" style="background:var(--secA)" data-sec>
+    <header class="wrap"><h2>1) World breaking / most significant</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>US President blocks photonics–defense assets deal over security concerns</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Type: Policy / security</span></div>
+        <p>
+          The US President blocked a small acquisition involving photonics assets and a defense specialist, citing national
+          security and China-related concerns. Even “small” deals can matter because they signal how strict the current
+          investment screening climate is—especially for dual-use, aerospace, and advanced electronics supply chains.
+        </p>
+        <a href="https://www.reuters.com/world/china/trump-blocks-chips-deal-cites-security-china-related-concerns-2026-01-03/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Manufacturing picture: Europe contracts deeper, Asia steadier on export orders and AI demand</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Type: Macro / industry</span></div>
+        <p>
+          Surveys showed euro zone factory activity shrinking further, while parts of Asia closed 2025 on firmer footing,
+          helped by export orders and AI-linked demand. This matters for a reader-defined paper because it foreshadows
+          IT spending cycles, supply constraints, and the mood in global markets.
+        </p>
+        <a href="https://www.reuters.com/world/china/global-economy-asias-factories-end-2025-firmer-footing-orders-pick-up-2026-01-02/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Mexico quake hits near Acapulco; tremors felt in Mexico City</h4>
+        <div class="meta"><span>Source: CNA</span><span>Type: Disaster</span></div>
+        <p>
+          A strong quake near Acapulco rattled Mexico City and coastal areas. In your “world significance” slot, the editor
+          flags high-impact disasters because they trigger humanitarian response, infrastructure disruption, and sometimes
+          supply chain or travel advisories—worth a quick 60-second awareness read.
+        </p>
+        <a href="https://www.channelnewsasia.com/world/65-magnitude-quake-shakes-mexico-city-and-beach-resort-5787196" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2) SINGAPORE POLICY -->
+  <section id="singapore" style="background:var(--secB)" data-sec>
+    <header class="wrap"><h2>2) Singapore policy releases / developments / visits</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>CDC Vouchers Scheme 2026 — launch speech (2 Jan 2026)</h4>
+        <div class="meta"><span>Source: PMO</span><span>Type: Domestic support</span></div>
+        <p>
+          PMO published the launch speech for CDC Vouchers Scheme 2026. Your AI editor should treat this as a primary
+          source and extract: who is eligible, key amounts/timelines, and what changed versus last year—so you can
+          understand the policy quickly without drifting into commentary.
+        </p>
+        <a href="https://www.pmo.gov.sg/newsroom/dpm-gan-kim-yong-at-the-launch-of-cdc-vouchers-scheme-2026-january/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Singapore GDP: 2025 growth 4.8%; Q4 up 5.7% (advance estimate)</h4>
+        <div class="meta"><span>Source: MTI</span><span>Type: Economy</span></div>
+        <p>
+          MTI’s advance estimate reported 2025 growth at 4.8% with Q4 up 5.7% year-on-year. Your editor can summarise
+          the drivers (e.g., manufacturing/electronics) and what it implies for 2026 risk: exports, tech demand, and
+          policy stance. This is a “Singapore HIGH” anchor item.
+        </p>
+        <a href="https://www.mti.gov.sg/newsroom/singapore-s-gdp-grew-by-5-7-per-cent-in-the-fourth-quarter-of-2025-and-by-4-8-per-cent-in-2025/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Households can claim $300 CDC vouchers from Jan 2, 2026</h4>
+        <div class="meta"><span>Source: The Straits Times</span><span>Type: Public info</span></div>
+        <p>
+          Households can claim $300 in CDC vouchers from Jan 2, 2026, with split usage across hawkers/heartland merchants
+          and supermarkets. In your paper, this should be presented as “what to do” in 3 steps (claim → spend → help options),
+          so it remains practical and non-distracting.
+        </p>
+        <a href="https://www.straitstimes.com/singapore/singaporean-households-can-redeem-300-cdc-vouchers-from-jan-2" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Entertainment in SG (local slot): Countdown 2026 concerts featured major K-pop and local acts</h4>
+        <div class="meta"><span>Source: CNA Lifestyle</span><span>Type: Local arts</span></div>
+        <p>
+          CNA Lifestyle recapped Countdown 2026 concerts featuring Super Junior and Red Velvet’s Irene & Seulgi alongside
+          local/regional artistes. This fits your “Singapore developments” lens as a cultural pulse item, and can be swapped
+          anytime you prefer more policy-heavy coverage.
+        </p>
+        <a href="https://cnalifestyle.channelnewsasia.com/entertainment/kpop-super-junior-red-velvet-singapore-countdown-2026-573406" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) ASEAN — 10 countries -->
+  <section id="asean" style="background:var(--secC)" data-sec>
+    <header class="wrap"><h2>3) ASEAN — 1 top story per country (10/10 filled)</h2></header>
+    <div class="sec-body wrap">
+      <div class="twoCol">
+        <div class="item">
+          <h4>Brunei — BruneiID national digital identity registration opens 3 Jan 2026</h4>
+          <div class="meta"><span>Source: The Bruneian</span><span>Country: Brunei</span></div>
+          <p>
+            Brunei rolled out a national digital identity system (BruneiID), with public registration opening Jan 3, 2026.
+            This is a foundational digital-government move—your editor should tag it under “digital governance / e-services”
+            and watch for downstream adoption milestones.
+          </p>
+          <a href="https://thebruneian.news/2026/01/02/brunei-rolls-out-national-digital-id-registration-opens-3-january/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Cambodia — border ceasefire with Thailand holds; prisoners released as confidence step</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Cambodia</span></div>
+          <p>
+            A renewed ceasefire held and releases of detained soldiers were reported, easing tensions after deadly clashes.
+            For your ASEAN slot, the 60-second takeaway is: “conflict temperature”, displacement level, and whether ASEAN
+            monitoring/diplomacy is stabilising the situation.
+          </p>
+          <a href="https://www.reuters.com/world/asia-pacific/thailand-frees-18-cambodian-soldiers-ceasefire-holds-2025-12-31/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Indonesia — new criminal code takes effect; government warns public oversight needed</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Indonesia</span></div>
+          <p>
+            Indonesia’s new criminal code took effect and officials acknowledged risk of misuse, emphasising public oversight.
+            This is significant because it affects civil liberties, tourism perceptions, and enforcement behaviour—worth tracking
+            as “policy/legal risk” in your morning scan.
+          </p>
+          <a href="https://www.reuters.com/world/asia-pacific/indonesias-new-criminal-code-requires-public-oversight-minister-says-2025-12-31/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Laos — plans to end power supply to crypto miners by early 2026</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Laos</span></div>
+          <p>
+            Laos signalled it may stop electricity supply to crypto miners by early 2026 to redirect power toward industries
+            considered more productive (including data centres). Your editor should tag: “energy policy”, “data-centre strategy”,
+            and “regional grid trade”.
+          </p>
+          <a href="https://www.reuters.com/sustainability/boards-policy-regulation/laos-plans-pull-plug-crypto-miners-by-early-2026-2025-10-16/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Malaysia — Najib files appeal after latest 1MDB conviction</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Malaysia</span></div>
+          <p>
+            Najib filed an appeal against his latest 1MDB conviction. For your daily read, your editor should compress the
+            legal situation into: “what the ruling was”, “what the appeal could change”, and “political stability implications”
+            for the coalition and investor confidence.
+          </p>
+          <a href="https://www.reuters.com/world/asia-pacific/malaysias-jailed-ex-pm-najib-files-appeal-against-1mdb-conviction-2025-12-30/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Myanmar — ASEAN to assess post-election developments, Malaysia PM says</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Myanmar</span></div>
+          <p>
+            Malaysia’s PM said ASEAN will assess developments after the initial phase of Myanmar’s controversial election.
+            The key 60-second lens: whether violence reduces, whether dialogue becomes credible, and how ASEAN’s Five-Point
+            Consensus is referenced (or sidelined).
+          </p>
+          <a href="https://www.reuters.com/world/asia-pacific/asean-assess-post-election-developments-myanmar-malaysia-pm-says-2025-12-30/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Philippines — challenges Chinese research ship near northern province amid Taiwan tensions</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Philippines</span></div>
+          <p>
+            The Philippines reported challenging a Chinese research vessel near northern waters. This is a strategic “situational
+            awareness” item: the editor should summarise “where”, “what action was taken”, and “why it matters now” given
+            cross-strait signalling.
+          </p>
+          <a href="https://www.reuters.com/world/china/philippines-challenges-chinese-vessel-off-northern-province-amid-taiwan-tensions-2025-12-31/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Singapore — CDC vouchers scheme launch (policy slot anchor)</h4>
+          <div class="meta"><span>Source: PMO</span><span>Country: Singapore</span></div>
+          <p>
+            This ASEAN-Singapore slot mirrors your Input2 priority: use primary sources first. Your AI editor can auto-extract
+            “what changed / what to do / key dates” into a consistent 1-minute template.
+          </p>
+          <a href="https://www.pmo.gov.sg/newsroom/dpm-gan-kim-yong-at-the-launch-of-cdc-vouchers-scheme-2026-january/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Thailand — renewed ceasefire with Cambodia and de-escalation steps</h4>
+          <div class="meta"><span>Source: Reuters</span><span>Country: Thailand</span></div>
+          <p>
+            Thailand’s side of the story is captured in the ceasefire/implementation reporting. Your editor should track:
+            ceasefire durability, troop movement restrictions, civilian returns, and ASEAN monitoring effectiveness.
+          </p>
+          <a href="https://www.reuters.com/world/asia-pacific/thailand-frees-18-cambodian-soldiers-ceasefire-holds-2025-12-31/" target="_blank" rel="noopener">Read original</a>
+        </div>
+
+        <div class="item">
+          <h4>Vietnam — key laws (including personal data protection) take effect from Jan 1, 2026</h4>
+          <div class="meta"><span>Source: Vietnam News</span><span>Country: Vietnam</span></div>
+          <p>
+            Vietnam’s new laws taking effect (including personal data protection) are a high-relevance governance story.
+            Your editor should summarise: compliance impact on businesses, enforcement expectations, and what changes for
+            day-to-day digital services.
+          </p>
+          <a href="https://vietnamnews.vn/politics-laws/1733035/several-major-laws-to-take-effect-from-january-1-2026.html" target="_blank" rel="noopener">Read original</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) EAST ASIA -->
+  <section id="eastasia" style="background:var(--secA)" data-sec>
+    <header class="wrap"><h2>4) East Asia — China, Taiwan, Japan, North Korea, South Korea (1 each)</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>China — VAT added to contraceptives as part of pro-birth policy push</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Country: China</span></div>
+        <p>
+          Reuters reported China applying VAT to contraceptives from Jan 1, 2026, amid demographic policy pushes.
+          Your editor’s 60-second frame: “what changed”, “policy intent”, and “what other pro-birth measures may follow”.
+        </p>
+        <a href="https://www.reuters.com/business/healthcare-pharmaceuticals/china-taxes-condoms-contraceptive-drugs-bid-spur-birth-rate-2026-01-02/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Taiwan — vows to defend sovereignty after China drill</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Country: Taiwan</span></div>
+        <p>
+          Taiwan responded after China’s military activity. For your morning read, the editor should summarise: what the drill was,
+          immediate diplomatic statements, and what indicators to watch next (air/sea activity, statements, economic exposure).
+        </p>
+        <a href="https://www.reuters.com/world/china/taiwan-vows-defend-sovereignty-after-chinas-military-drill-2026-01-01/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Japan — business leaders urge action on weak yen</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Country: Japan</span></div>
+        <p>
+          Business leaders urged action on the weak yen. Your editor can add a personal-impact line for Singapore readers:
+          travel costs, import price effects, and what to watch from BOJ/government messaging.
+        </p>
+        <a href="https://www.reuters.com/world/asia-pacific/japan-business-lobby-chiefs-urge-government-tackle-weak-yen-media-reports-2026-01-01/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>North Korea — Kim visits greenhouse farm project; domestic priority signalling</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Country: North Korea</span></div>
+        <p>
+          Kim’s site visit to a greenhouse/farm project is a domestic-priority signal. In 60 seconds, your editor tags:
+          “food/security narrative”, timing, and whether there are related policy or resource allocation hints.
+        </p>
+        <a href="https://www.reuters.com/world/china/north-koreas-kim-jong-un-visits-greenhouse-farm-encourages-workers-kcna-says-2026-01-02/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>South Korea — court extends detention warrant for former President Yoon</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Country: South Korea</span></div>
+        <p>
+          Reuters reported a court extending the detention warrant for ex-President Yoon. Your editor’s quick frame:
+          “legal status today”, “next procedural step”, and any market/policy sensitivity if the political situation shifts.
+        </p>
+        <a href="https://www.reuters.com/world/asia-pacific/south-korean-court-extends-detention-warrant-against-former-president-yoon-2026-01-02/" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5) SPORTS -->
+  <section id="sports" style="background:var(--secD)" data-sec>
+    <header class="wrap"><h2>5) Sports — EPL (scores/fixtures) + Top scorers (Spain/Italy/Germany)</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>EPL — recent results + upcoming fixtures (Jan 1–4 window)</h4>
+        <div class="meta"><span>Source: Sports schedule feed</span><span>Type: Results & fixtures</span></div>
+        <p>
+          Your paper can show “all matches played” plus the next slate. In this window:
+          Fulham–Palace 1–1, Leeds–Liverpool 0–0, Spurs–Brentford 0–0, Man City–Sunderland 0–0, then fixtures continue on Jan 3–4.
+          (The schedule widget above shows the full list.)
+        </p>
+        <a href="https://www.premierleague.com/" target="_blank" rel="noopener">Premier League official</a>
+      </div>
+
+      <div class="item">
+        <h4>Top scorers — official reference links</h4>
+        <div class="meta"><span>Type: Stats reference</span></div>
+        <p>
+          To keep accuracy high, this slot should link to official/consistent stat tables.
+          Your AI editor can snapshot “Top 10 scorers” daily and highlight only changes since yesterday.
+        </p>
+        <a href="https://www.premierleague.com/en/stats/top/players" target="_blank" rel="noopener">EPL scorers (official)</a><br/>
+        <a href="https://www.laliga.com/en-GB/stats/laliga-easports/scorers" target="_blank" rel="noopener">La Liga scorers (official)</a><br/>
+        <a href="https://www.espn.com/soccer/stats/_/league/ita.1" target="_blank" rel="noopener">Serie A scorers (ESPN)</a><br/>
+        <a href="https://www.tntsports.co.uk/football/bundesliga/topscorer.shtml" target="_blank" rel="noopener">Bundesliga scorers (TNT Sports)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) SG BUSINESS -->
+  <section id="biz" style="background:var(--secB)" data-sec>
+    <header class="wrap"><h2>6) Singapore business — top significant</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>Singapore economy: 2025 growth strongest since 2021; AI-linked demand noted</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Type: Macro / business climate</span></div>
+        <p>
+          Reuters highlighted Singapore’s stronger-than-expected 2025 growth and noted demand tied to AI-related semiconductors
+          and servers as an important driver. For your business slot, the editor can add a “what it means” line:
+          which sectors benefit and what risks remain for 2026 (trade, tariffs, demand cooling).
+        </p>
+        <a href="https://www.reuters.com/world/asia-pacific/singapore-q4-gdp-up-57-yy-preliminary-data-shows-2026-01-02/" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7) COMIC -->
+  <section id="comic" style="background:var(--secC)" data-sec>
+    <header class="wrap"><h2>7) Comic post</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>xkcd (latest)</h4>
+        <div class="meta"><span>Source: xkcd</span></div>
+        <p>
+          A light 60-second “reset” slot. Your editor can optionally show the image and alt-text in-card.
+        </p>
+        <a href="https://xkcd.com/" target="_blank" rel="noopener">Open xkcd</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8) ENTERTAINMENT (Local / HK / Taiwan) -->
+  <section id="ent" style="background:var(--secD)" data-sec>
+    <header class="wrap"><h2>8) Entertainment — Local, Hong Kong, Taiwan (1 each)</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>Local (Singapore) — Countdown 2026 concerts recap</h4>
+        <div class="meta"><span>Source: CNA Lifestyle</span><span>Region: Singapore</span></div>
+        <p>
+          Singapore’s Countdown 2026 shows featured major K-pop names and local/regional acts. In your newspaper, this slot
+          can rotate between “artist news” and “what’s on this month”—depending on how much entertainment you want.
+        </p>
+        <a href="https://cnalifestyle.channelnewsasia.com/entertainment/kpop-super-junior-red-velvet-singapore-countdown-2026-573406" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Hong Kong — January 2026 arts & culture picks (incl. Lea Salonga performance)</h4>
+        <div class="meta"><span>Source: Tatler Asia</span><span>Region: Hong Kong</span></div>
+        <p>
+          A curated January list is a clean “one-minute” format: you get what’s relevant without endless scrolling.
+          Your editor can optionally filter for “music/artist only” if you prefer.
+        </p>
+        <a href="https://www.tatlerasia.com/lifestyle/arts/arts-culture-events-hong-kong-january-2026" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>Taiwan — New Taipei cross-river fireworks show and headline performances</h4>
+        <div class="meta"><span>Source: Yahoo</span><span>Region: Taiwan</span></div>
+        <p>
+          Taiwan’s New Year events recap (fireworks + headline performers) fits your “one item” requirement and keeps the
+          entertainment section efficient. Your editor can later switch this to “artist release/news” feeds if preferred.
+        </p>
+        <a href="https://sg.finance.yahoo.com/news/taipeis-2026-cross-river-fireworks-181200260.html" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9) MICROSOFT -->
+  <section id="microsoft" style="background:var(--secA)" data-sec>
+    <header class="wrap"><h2>9) Microsoft products — 1 feature/update</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>Microsoft 365 update: new capabilities and pricing changes (official blog)</h4>
+        <div class="meta"><span>Source: Microsoft 365 Blog</span><span>Type: Product</span></div>
+        <p>
+          The official Microsoft 365 Blog is the right “primary” channel for this segment. Your AI editor should summarise:
+          what’s new, who it affects, and any timing/licensing notes—so you don’t spend time chasing multiple summaries.
+        </p>
+        <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2025/12/04/advancing-microsoft-365-new-capabilities-and-pricing-update/" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10) POWER BI -->
+  <section id="powerbi" style="background:var(--secB)" data-sec>
+    <header class="wrap"><h2>10) Power BI — 1 update</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>PBIR becomes the default report format starting Jan 2026 (official Power BI Blog)</h4>
+        <div class="meta"><span>Source: Power BI Blog</span><span>Type: Product change</span></div>
+        <p>
+          Microsoft announced PBIR will become the default report format for new reports starting Jan 2026, and existing reports
+          convert when edited and saved. Your editor should translate this into “what to do next”: repository strategy, version
+          control readiness, and team workflow impacts.
+        </p>
+        <a href="https://powerbi.microsoft.com/en-us/blog/" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11) AI -->
+  <section id="ai" style="background:var(--secC)" data-sec>
+    <header class="wrap"><h2>11) AI development & application — 1 news</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>Baidu’s AI chip unit Kunlunxin files confidentially for Hong Kong listing</h4>
+        <div class="meta"><span>Source: Reuters</span><span>Type: AI compute / chips</span></div>
+        <p>
+          Reuters reported Kunlunxin’s confidential filing for a Hong Kong listing. This is a “compute supply chain” signal:
+          as global restrictions shape chip availability, domestic AI chip capacity and financing paths become strategic.
+          Your editor can tag it as “AI infrastructure” and watch for follow-ups (valuation, customers, deployment scale).
+        </p>
+        <a href="https://www.reuters.com/world/asia-pacific/baidus-ai-chip-arm-kunlunxin-files-confidentially-hong-kong-listing-2026-01-01/" target="_blank" rel="noopener">Read original</a>
+      </div>
+
+      <div class="item">
+        <h4>xAI expands infrastructure to boost training compute capacity</h4>
+        <div class="meta"><span>Source: CNA (via Reuters)</span><span>Type: AI infrastructure</span></div>
+        <p>
+          Elon Musk said xAI acquired a third building to expand infrastructure and increase training capacity. For your AI slot,
+          the editor should summarise “why it matters”: compute scale → faster model iteration → competitive pressure in AI tools,
+          with knock-on effects for enterprise adoption and cost.
+        </p>
+        <a href="https://www.channelnewsasia.com/business/musks-xai-buys-third-building-expand-ai-compute-power-5770556" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12) DATA ANALYTICS -->
+  <section id="data" style="background:var(--secA)" data-sec>
+    <header class="wrap"><h2>12) Data analytics — 1 news</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>Singapore — National data analytics platform speeds up research while protecting personal information</h4>
+        <div class="meta"><span>Source: The Straits Times</span><span>Type: Data governance</span></div>
+        <p>
+          Singapore’s national data analytics platform was reported as improving research speed while maintaining safeguards.
+          This fits perfectly into your “data analytics” segment: it signals how the country is building trusted analytics
+          capability at national scale—relevant to policy, healthcare, and the future AI ecosystem.
+        </p>
+        <a href="https://www.straitstimes.com/singapore/health/national-data-analytics-platform-speeds-up-research-ensures-safety-of-personal-info" target="_blank" rel="noopener">Read original</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13–15) VIDEOS -->
+  <section id="video" style="background:var(--secD)" data-sec>
+    <header class="wrap"><h2>13–15) Video — Power BI tutorial / AI tools tutorial / AI development video</h2></header>
+    <div class="sec-body wrap">
+      <div class="item">
+        <h4>Power BI tutorial (slot)</h4>
+        <div class="meta"><span>Type: Video</span></div>
+        <p>
+          This slot should pull “latest tutorial” from a shortlist of trusted channels (Microsoft Power BI, Guy in a Cube, etc.).
+          Your editor can show: 3 bullet takeaways + whether it’s beginner/intermediate/advanced.
+        </p>
+        <a href="https://www.youtube.com/@MicrosoftPowerBI" target="_blank" rel="noopener">Open Microsoft Power BI channel</a>
+      </div>
+
+      <div class="item">
+        <h4>AI tools tutorial (slot)</h4>
+        <div class="meta"><span>Type: Video</span></div>
+        <p>
+          Same approach: shortlist trusted creators, then pick the newest high-signal tutorial. Your editor can add a “risk note”
+          (privacy, cost, vendor lock-in) so you don’t waste time.
+        </p>
+        <a href="https://www.youtube.com/results?search_query=AI+tools+tutorial+2026" target="_blank" rel="noopener">Search videos</a>
+      </div>
+
+      <div class="item">
+        <h4>AI development & application video (slot)</h4>
+        <div class="meta"><span>Type: Video</span></div>
+        <p>
+          This can be a weekly “AI news recap” video. Your editor can extract the top 3 claims and mark confidence level
+          (confirmed vs speculative) to keep it useful.
+        </p>
+        <a href="https://www.youtube.com/results?search_query=AI+news+January+2026" target="_blank" rel="noopener">Search AI news videos</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    You now have Inputs 1–15 filled, and the top buttons are “active” (highlight on scroll + smooth jump).
+    Next step (if you want it fully automated daily): swap the manual links for RSS/API feeds + a scoring rule.
+  </footer>
+</div>
+
+<script>
+  // Scroll-spy: highlight the nav pill for the section in view
+  const navLinks = Array.from(document.querySelectorAll('nav a[data-link]'));
+  const sections = Array.from(document.querySelectorAll('section[data-sec]'));
+
+  const byId = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const id = e.target.getAttribute('id');
+        const link = byId.get(id);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { root: null, threshold: 0.35 });
+
+  sections.forEach(sec => io.observe(sec));
+
+  // Optional: close nav highlight when clicking a link (smooth scroll already)
+  navLinks.forEach(a => a.addEventListener('click', () => {
+    navLinks.forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+  }));
+</script>
+
+</body>
+</html>
